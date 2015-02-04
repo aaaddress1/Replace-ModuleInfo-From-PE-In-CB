@@ -1,4 +1,3 @@
 # Hide-Module-From-Memory-In-CB
-將指定模組的記憶體資料從PE Header上抹除,但保留模組可存在於進程內存活.
-
+將指定Handle Inptr的模組名稱從PE Header中替換(or抹除).
 ![alt](Demo.png)

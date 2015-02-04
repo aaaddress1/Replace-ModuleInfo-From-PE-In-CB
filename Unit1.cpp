@@ -22,17 +22,17 @@ bool HideModualName(long BaseADR){
 				mov  eax,[eax + 0x0c]     //;eax==Ldr-->PEB_LDR_DATA
 				mov  eax,[eax+0x0c]       //LIST
 				Scan:
-				mov  ecx,[eax + 0x18]     //;[eax + 18h]¬°·í«e³B²zªº¼Ò¶ôªº°ò§}
-				cmp  ecx,[BaseADR]        //;§ä¨ì¥»¼Ò¶ôªºLDR_DATA_TABLE_ENTRY
+				mov  ecx,[eax + 0x18]     //;[eax + 18h]ç‚ºç•¶å‰è™•ç†çš„æ¨¡å¡Šçš„åŸºå€
+				cmp  ecx,[BaseADR]        //;æ‰¾åˆ°æœ¬æ¨¡å¡Šçš„LDR_DATA_TABLE_ENTRY
 				jne  Next
 			   //	mov  ebx,[eax + 0x24 + 0x4]
 				push FakeStr
 				pop [eax + 0x28]
 				push FakeStr
 				pop [eax + 0x30]
-			  /*	movzx  ecx,word ptr [eax + 0x24]   // ;Unicode String length Àò±o¤l¦êªø«×
+			  /*	movzx  ecx,word ptr [eax + 0x24]   // ;Unicode String length ç²å¾—å­ä¸²é•·åº¦
 				mov  edi,ebx        //  ;Unicode String Address
-				mov  dword ptr [ebx],0      //;(½T«OString­º4­Óbyte¬°0)  */
+				mov  dword ptr [ebx],0      //;(ç¢ºä¿Stringé¦–4å€‹byteç‚º0)  */
 				jmp  Exit
 
 				Next:
@@ -42,21 +42,8 @@ bool HideModualName(long BaseADR){
 		}
 }
 
-
-
-
-
-
-
 void __fastcall TForm1::FormShow(TObject *Sender)
 {
-
-
-
-HideModualName(0x400000);
-
-
-return;
-
+	HideModualName(0x400000);
 }
 //---------------------------------------------------------------------------
